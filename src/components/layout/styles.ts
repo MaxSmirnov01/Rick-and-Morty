@@ -1,32 +1,77 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const HeaderWrapper = styled.header`
   display: flex;
   align-items: center;
   background-color: rgb(45, 44, 44);
   width: 100%;
-  height: 70px;
+  height: 100px;
 `;
 
-export const SearchButton = styled.button`
-  padding: 10px 20px;
-  background-color: #9ce2fe;
-  border: 2px solid;
-  border-color: #005ae1;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 0px auto;
-  font-weight: bold;
-  transition: background-color 0.3s;
+export const Nav = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 20px;
+`;
 
-  &:hover {
-    background-color: #0056b3;
+export const LogoContainer = styled.div`
+  display: flex;
+  padding: 15px 0;
+  height: 100%;
+`;
+
+const spin = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 `;
 
-export const CardsSection = styled.section`
-  background-color: #fff1b5;
+export const Logo = styled.img`
+  height: 100%;
+
+  &:hover {
+    animation: ${spin} 1s linear infinite;
+  }
+`;
+
+export const FormContainer = styled.form`
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  padding: 5px 5px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+`;
+
+export const InputWrapper = styled.input`
+  font: inherit;
+  color: white;
+  box-sizing: content-box;
+  padding: 5px 5px;
+  border: 0px;
+  background: none;
+
+  &:focus {
+    outline: 0px;
+  }
+`;
+
+export const SearchButton = styled.button`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background: none;
+  border: 0px;
+  fill: white;
 `;
 
 export const UlWrapper = styled.ul`
@@ -77,4 +122,27 @@ export const H2Wrapper = styled.h2`
 
 export const Status = styled.span<{ $color?: string }>`
   color: ${(props) => props.$color};
+`;
+
+export const PaginationBox = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 0 40px 40px;
+`;
+
+export const PaginationButton = styled.button<{ $disabled: boolean }>`
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: 0px;
+  width: 50px;
+  height: 40px;
+  opacity: ${(props) => props.$disabled && 0.4};
+
+  &:hover {
+    background-color: rgb(199 188 141);
+    border-radius: 5px;
+  }
 `;

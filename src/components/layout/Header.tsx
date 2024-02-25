@@ -1,12 +1,48 @@
-import search from '../../assets/search.svg';
-import { HeaderWrapper, SearchButton } from './styles';
+import logo from '../../assets/logo.png';
+import { HeaderWrapper, Nav, LogoContainer, Logo, SearchButton, FormContainer, InputWrapper } from './styles';
+import { Link } from 'react-router-dom';
+import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { setName, setPage } from '../../store/charactersSlice';
+import { AppDispatch } from '../../store/store';
 
 const Header = () => {
+  const dispatch: AppDispatch = useDispatch();
+
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+    },
+    onSubmit: ({ name }) => {
+      dispatch(setName(name));
+      dispatch(setPage(1));
+      formik.resetForm();
+    },
+  });
+
   return (
     <HeaderWrapper>
-      <SearchButton>
-        <img src={search} alt="Search icon" />
-      </SearchButton>
+      <Nav>
+        <LogoContainer>
+          <Link to="/">
+            <Logo src={logo} alt="Logo" />
+          </Link>
+        </LogoContainer>
+        <FormContainer onSubmit={formik.handleSubmit}>
+          <InputWrapper
+            type="text"
+            id="name"
+            placeholder="Rick Sanchez"
+            value={formik.values.name}
+            onChange={formik.handleChange}
+          />
+          <SearchButton type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+              <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+            </svg>
+          </SearchButton>
+        </FormContainer>
+      </Nav>
     </HeaderWrapper>
   );
 };

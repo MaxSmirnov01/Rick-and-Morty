@@ -1,17 +1,29 @@
+import { useSelector } from 'react-redux';
 import { useGetCharactersQuery } from '../../api/api';
 import Card from './Card';
-import { CardsSection, UlWrapper } from './styles';
+import { UlWrapper } from './styles';
+import { RootState } from '../../store/store';
+import Pagination from './Pagination';
 
 const CardBox = () => {
-  const { data, isLoading, isFetching, isError } = useGetCharactersQuery();
-  console.log(data, isLoading, isFetching, isError);
+  const { name, page } = useSelector((state: RootState) => state.currentCharacter);
+
+  const { data, isLoading, isFetching, isError } = useGetCharactersQuery({ name, page });
+  console.log(data);
 
   return (
-    <CardsSection>
-      <UlWrapper>
-        {data && data.results.map((character) => <Card key={character.id} character={character} />)}
-      </UlWrapper>
-    </CardsSection>
+    <>
+      {data && (
+        <section>
+          <UlWrapper>
+            {data.results.map((character) => (
+              <Card key={character.id} character={character} />
+            ))}
+          </UlWrapper>
+          <Pagination data={data} page={page} />
+        </section>
+      )}
+    </>
   );
 };
 

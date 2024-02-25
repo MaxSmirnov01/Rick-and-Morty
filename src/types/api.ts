@@ -28,3 +28,8 @@ export type Characters = {
   };
   results: Character[];
 };
+
+export type Arg = {
+  name: string;
+  page: number;
+};
