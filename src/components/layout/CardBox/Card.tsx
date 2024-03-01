@@ -1,4 +1,4 @@
-import type { Character } from '../../types/api';
+import type { Character } from '../../../types/api';
 import { CardWrapper, CardImg, CardContent, H2Wrapper, Status } from './styles';
 
 const Card = ({ character }: { character: Character }) => {

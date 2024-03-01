@@ -23,7 +23,7 @@ export const LogoContainer = styled.div`
   height: 100%;
 `;
 
-const spin = keyframes`
+export const spin = keyframes`
   from {
     transform: rotate(0deg);
   }
@@ -46,6 +46,7 @@ export const FormContainer = styled.form`
   display: flex;
   align-items: center;
   padding: 5px 5px;
+  height: 45px;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.25);
@@ -74,60 +75,10 @@ export const SearchButton = styled.button`
   fill: white;
 `;
 
-export const UlWrapper = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  padding: 40px 40px;
-  margin: 0;
-`;
-
-export const CardWrapper = styled.li`
-  width: 600px;
-  height: 220px;
-  display: flex;
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px,
-    rgba(0, 0, 0, 0.12) 0px 1px 18px 0px;
-  overflow: hidden;
-  cursor: pointer;
-  background-color: rgb(255, 255, 255);
-
-  &:hover {
-    background-color: rgb(199 188 141);
-    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px,
-      rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
-  }
-`;
-
-export const CardImg = styled.img`
-  height: 100%;
-  object-fit: cover;
-`;
-
-export const CardContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 16px;
-  flex-grow: 1;
-  gap: 10px;
-`;
-
-export const H2Wrapper = styled.h2`
-  margin: 0;
-`;
-
-export const Status = styled.span<{ $color?: string }>`
-  color: ${(props) => props.$color};
-`;
-
 export const PaginationBox = styled.div`
   display: flex;
   justify-content: center;
-  padding: 0 40px 40px;
+  padding: 0 40px 20px;
 `;
 
 export const PaginationButton = styled.button<{ $disabled: boolean }>`

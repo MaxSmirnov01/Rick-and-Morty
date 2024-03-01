@@ -1,4 +1,4 @@
-import CardBox from '../layout/CardBox';
+import CardBox from '../layout/CardBox/CardBox';
 
 const Main = () => {
   return <CardBox />;

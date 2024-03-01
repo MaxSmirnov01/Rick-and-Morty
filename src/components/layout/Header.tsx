@@ -3,19 +3,26 @@ import { HeaderWrapper, Nav, LogoContainer, Logo, SearchButton, FormContainer, I
 import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { setName, setPage } from '../../store/charactersSlice';
+import { setFilter } from '../../store/charactersSlice';
 import { AppDispatch } from '../../store/store';
+import { useEffect, useRef } from 'react';
 
 const Header = () => {
   const dispatch: AppDispatch = useDispatch();
+  const input = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (input.current) {
+      input.current.focus();
+    }
+  }, []);
 
   const formik = useFormik({
     initialValues: {
       name: '',
     },
     onSubmit: ({ name }) => {
-      dispatch(setName(name));
-      dispatch(setPage(1));
+      dispatch(setFilter({ name }));
       formik.resetForm();
     },
   });
@@ -32,9 +39,10 @@ const Header = () => {
           <InputWrapper
             type="text"
             id="name"
-            placeholder="Rick Sanchez"
+            placeholder="Rick"
             value={formik.values.name}
             onChange={formik.handleChange}
+            ref={input}
           />
           <SearchButton type="submit">
             <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">

@@ -7,10 +7,21 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   tagTypes: ['Characters'],
   endpoints: (builder) => ({
-    getCharacters: builder.query<Characters, Arg>({
-      query: ({ name, page }) => ({
-        url: `${LIST_CHARACTERS}/?name=${name}&page=${page}`,
-      }),
+    getCharacters: builder.query<Characters, Partial<Arg>>({
+      query: ({ name, page, status, gender, species, type }) => {
+        // сомнительно, но окэй
+        let url = `${LIST_CHARACTERS}/?`;
+        if (name) url += `name=${name}&`;
+        if (page) url += `page=${page}&`;
+        if (status) url += `status=${status}&`;
+        if (gender) url += `gender=${gender}&`;
+        if (species) url += `species=${species}&`;
+        if (type) url += `type=${type}&`;
+
+        url = url.replace(/&$/, '');
+
+        return { url };
+      },
       providesTags: ['Characters'],
     }),
   }),

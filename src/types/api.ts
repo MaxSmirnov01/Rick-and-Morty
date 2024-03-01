@@ -32,4 +32,8 @@ export type Characters = {
 export type Arg = {
   name: string;
   page: number;
+  status: string;
+  gender: string;
+  species: string;
+  type: string;
 };
