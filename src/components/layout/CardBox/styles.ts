@@ -12,6 +12,14 @@ export const UlWrapper = styled.ul`
   justify-content: center;
   padding: 40px;
   margin: 0;
+
+  @media (max-width: 1024px) {
+    padding: 20px 40px 40px 40px;
+  }
+
+  @media (max-width: 425px) {
+    padding: 20px;
+  }
 `;
 
 export const SpinnerContainer = styled.div`
@@ -28,7 +36,7 @@ export const SpinnerImg = styled.img`
 `;
 
 export const CardContainer = styled.li`
-  width: 600px;
+  width: 440px;
   height: 220px;
   display: flex;
   border-radius: 10px;
@@ -46,11 +54,25 @@ export const CardContainer = styled.li`
     box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px,
       rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
   }
+
+  @media (max-width: 1024px) {
+    width: 600px;
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    height: 100%;
+    width: 300px;
+  }
 `;
 
 export const CardImg = styled.img`
   height: 100%;
   object-fit: cover;
+
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 export const CardContent = styled.div`

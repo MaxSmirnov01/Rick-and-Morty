@@ -8,6 +8,19 @@ export const FilterSection = styled.div`
   justify-content: center;
   gap: 20px;
   padding: 0 40px;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 425px) {
+    padding: 0 20px;
+  }
+`;
+
+export const FilterSelectContainer = styled.div`
+  display: flex;
+  gap: 20px;
 `;
 
 export const FilterSelect = styled.select`
@@ -22,25 +35,51 @@ export const FilterSelect = styled.select`
   }
 `;
 
-export const FilterFormContainer = styled(FormContainer)`
+export const FilterForm = styled(FormContainer)`
   background-color: rgb(255, 255, 255);
   border: 1px solid;
+  max-height: 45px;
 
   &:hover {
     background-color: rgb(199 188 141);
   }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    align-items: normal;
+    max-height: none;
+    height: 100%;
+    width: 100%;
+  }
+`;
+
+export const FilterFormContainer = styled.div`
+  display: flex;
 `;
 
 export const FilterLabelWrapper = styled.label`
-  width: 260px;
+  max-width: 260px;
+
+  @media (max-width: 700px) {
+    width: 100%;
+    max-width: none;
+  }
 `;
 
-export const FilterInputWrapper = styled(InputWrapper)`
+export const FilterTypeInputWrapper = styled(InputWrapper)`
   color: black;
+
+  @media (max-width: 425px) {
+    width: 100%;
+  }
 `;
 
-export const FilterSpeciesInputWrapper = styled(FilterInputWrapper)`
+export const FilterSpeciesInputWrapper = styled(FilterTypeInputWrapper)`
   width: 65%;
+
+  @media (max-width: 425px) {
+    width: 100%;
+  }
 `;
 
 export const HrWrapper = styled.hr`
@@ -48,6 +87,10 @@ export const HrWrapper = styled.hr`
   border-width: 0px 1px 0px 0px;
   border-style: solid;
   align-self: stretch;
+
+  @media (max-width: 700px) {
+    border-width: 0px 0px 1px 0px;
+  }
 `;
 
 export const AddButton = styled(SearchButton)`

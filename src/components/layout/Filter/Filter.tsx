@@ -1,8 +1,10 @@
 import {
   FilterSection,
+  FilterSelectContainer,
   FilterSelect,
+  FilterForm,
   FilterFormContainer,
-  FilterInputWrapper,
+  FilterTypeInputWrapper,
   FilterLabelWrapper,
   FilterSpeciesInputWrapper,
   HrWrapper,
@@ -50,52 +52,58 @@ const Filter = () => {
 
   return (
     <FilterSection>
-      <FilterSelect value={filter.status} onChange={(e) => handleFilterChange('status', e.target.value)}>
-        <option value="">Status</option>
-        <option value="alive">Alive</option>
-        <option value="dead">Dead</option>
-        <option value="unknown">Unknown</option>
-      </FilterSelect>
-      <FilterSelect value={filter.gender} onChange={(e) => handleFilterChange('gender', e.target.value)}>
-        <option value="">Gender</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="genderless">Genderless</option>
-        <option value="unknown">Unknown</option>
-      </FilterSelect>
-      <FilterFormContainer onSubmit={formik.handleSubmit}>
-        <FilterLabelWrapper>
-          Species:
-          <FilterSpeciesInputWrapper
-            type="text"
-            placeholder="Alien"
-            id="species"
-            value={formik.values.species}
-            onChange={formik.handleChange}
-          />
-        </FilterLabelWrapper>
-        <AddButton type="submit">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-            <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
-          </svg>
-        </AddButton>
+      <FilterSelectContainer>
+        <FilterSelect value={filter.status} onChange={(e) => handleFilterChange('status', e.target.value)}>
+          <option value="">Status</option>
+          <option value="alive">Alive</option>
+          <option value="dead">Dead</option>
+          <option value="unknown">Unknown</option>
+        </FilterSelect>
+        <FilterSelect value={filter.gender} onChange={(e) => handleFilterChange('gender', e.target.value)}>
+          <option value="">Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="genderless">Genderless</option>
+          <option value="unknown">Unknown</option>
+        </FilterSelect>
+      </FilterSelectContainer>
+      <FilterForm onSubmit={formik.handleSubmit}>
+        <FilterFormContainer>
+          <FilterLabelWrapper>
+            Species:
+            <FilterSpeciesInputWrapper
+              type="text"
+              placeholder="Alien"
+              id="species"
+              value={formik.values.species}
+              onChange={formik.handleChange}
+            />
+          </FilterLabelWrapper>
+          <AddButton type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+              <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+            </svg>
+          </AddButton>
+        </FilterFormContainer>
         <HrWrapper />
-        <FilterLabelWrapper>
-          Type:
-          <FilterInputWrapper
-            type="text"
-            placeholder="Gazorpian"
-            id="type"
-            value={formik.values.type}
-            onChange={formik.handleChange}
-          />
-        </FilterLabelWrapper>
-        <AddButton type="submit">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-            <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
-          </svg>
-        </AddButton>
-      </FilterFormContainer>
+        <FilterFormContainer>
+          <FilterLabelWrapper>
+            Type:
+            <FilterTypeInputWrapper
+              type="text"
+              placeholder="Gazorpian"
+              id="type"
+              value={formik.values.type}
+              onChange={formik.handleChange}
+            />
+          </FilterLabelWrapper>
+          <AddButton type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+              <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" />
+            </svg>
+          </AddButton>
+        </FilterFormContainer>
+      </FilterForm>
       <ResetButton
         onClick={handleFiltersReset}
         $isSpinning={isSpinning}

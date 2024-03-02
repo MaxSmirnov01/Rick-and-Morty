@@ -64,6 +64,10 @@ export const InputWrapper = styled.input`
   &:focus {
     outline: 0px;
   }
+
+  @media (max-width: 425px) {
+    width: 150px;
+  }
 `;
 
 export const SearchButton = styled.button`

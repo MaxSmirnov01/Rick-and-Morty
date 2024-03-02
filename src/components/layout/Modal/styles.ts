@@ -36,6 +36,11 @@ export const ModalContainer = styled.div`
   max-width: 80%;
   max-height: 80%;
   overflow: auto;
+
+  @media (max-width: 425px) {
+    width: 100%;
+    height: 320px;
+  }
 `;
 
 export const ModalCloseButton = styled.button`
@@ -56,6 +61,10 @@ export const ModalBody = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   height: 100%;
+
+  @media (max-width: 425px) {
+    gap: 20px;
+  }
 `;
 
 export const ModalContent = styled.div`
