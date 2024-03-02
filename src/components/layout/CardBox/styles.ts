@@ -27,7 +27,7 @@ export const SpinnerImg = styled.img`
   animation: ${spin} 1s linear infinite;
 `;
 
-export const CardWrapper = styled.li`
+export const CardContainer = styled.li`
   width: 600px;
   height: 220px;
   display: flex;

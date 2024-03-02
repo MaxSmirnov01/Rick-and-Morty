@@ -1,9 +1,9 @@
 import type { Character } from '../../../types/api';
-import { CardWrapper, CardImg, CardContent, H2Wrapper, Status } from './styles';
+import { CardContainer, CardImg, CardContent, H2Wrapper, Status } from './styles';
 
-const Card = ({ character }: { character: Character }) => {
+const Card = ({ character, onClick }: { character: Character; onClick: () => void }) => {
   return (
-    <CardWrapper>
+    <CardContainer onClick={onClick}>
       <div>
         <CardImg src={character.image} alt={character.name} />
       </div>
@@ -14,7 +14,7 @@ const Card = ({ character }: { character: Character }) => {
           Status: <Status $color={character.status === 'Alive' ? 'green' : 'red'}>{character.status}</Status>
         </strong>
       </CardContent>
-    </CardWrapper>
+    </CardContainer>
   );
 };
 

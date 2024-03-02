@@ -7,9 +7,14 @@ import Pagination from '../Pagination';
 import logo from '../../../assets/logo.png';
 import Filter from '../Filter/Filter';
 import { useEffect, useState } from 'react';
+import { Character } from '../../../types/api';
+import Modal from '../Modal/Modal';
 
 const CardBox = () => {
   const [errorMessage, setErrorMessage] = useState<null | string>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
+
   const { page, filters } = useSelector((state: RootState) => state.currentCharacter);
 
   const { data, isLoading, isFetching, isError, error } = useGetCharactersQuery({ page, ...filters });
@@ -22,6 +27,15 @@ const CardBox = () => {
       }
     }
   }, [isError, error]);
+
+  const handleClick = (character: Character) => {
+    setSelectedCharacter(character);
+    setModalOpen(!modalOpen);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   return (
     <MainSection>
@@ -36,12 +50,13 @@ const CardBox = () => {
         <>
           <UlWrapper>
             {data.results.map((character) => (
-              <Card key={character.id} character={character} />
+              <Card key={character.id} character={character} onClick={() => handleClick(character)} />
             ))}
           </UlWrapper>
           <Pagination data={data} page={page} />
         </>
       )}
+      {modalOpen && selectedCharacter && <Modal onClose={closeModal} selectedCharacter={selectedCharacter} />}
     </MainSection>
   );
 };
