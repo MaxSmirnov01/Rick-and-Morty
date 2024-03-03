@@ -68,6 +68,7 @@ export const FilterLabelWrapper = styled.label`
 
 export const FilterTypeInputWrapper = styled(InputWrapper)`
   color: black;
+  width: 65%;
 
   @media (max-width: 425px) {
     width: 100%;

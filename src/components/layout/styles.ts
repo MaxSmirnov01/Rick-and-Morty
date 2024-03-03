@@ -73,6 +73,10 @@ export const FormContainer = styled.form`
   &:hover {
     background-color: rgba(255, 255, 255, 0.25);
   }
+
+  @media (max-width: 425px) {
+    width: 150px;
+  }
 `;
 
 export const InputWrapper = styled.input`
@@ -82,13 +86,10 @@ export const InputWrapper = styled.input`
   padding: 5px 5px;
   border: 0px;
   background: none;
+  width: 100%;
 
   &:focus {
     outline: 0px;
-  }
-
-  @media (max-width: 425px) {
-    width: 150px;
   }
 `;
 
