@@ -21,6 +21,7 @@ export const LogoContainer = styled.div`
   display: flex;
   padding: 15px 0;
   height: 100%;
+  width: 70px;
 `;
 
 export const NotFoundContainer = styled(LogoContainer)`
@@ -72,10 +73,6 @@ export const FormContainer = styled.form`
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.25);
-  }
-
-  @media (max-width: 425px) {
-    width: 150px;
   }
 `;
 

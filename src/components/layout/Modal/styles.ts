@@ -53,7 +53,6 @@ export const ModalCloseButton = styled.button`
 
 export const ModalBody = styled.div`
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   height: 100%;
 `;
