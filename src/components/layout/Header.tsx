@@ -5,17 +5,17 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { setFilter } from '../../store/charactersSlice';
 import { AppDispatch } from '../../store/store';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 const Header = () => {
   const dispatch: AppDispatch = useDispatch();
   const input = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    if (input.current) {
-      input.current.focus();
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (input.current) {
+  //     input.current.focus();
+  //   }
+  // }, []);
 
   const formik = useFormik({
     initialValues: {
