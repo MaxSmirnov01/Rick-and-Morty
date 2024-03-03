@@ -23,6 +23,28 @@ export const LogoContainer = styled.div`
   height: 100%;
 `;
 
+export const NotFoundContainer = styled(LogoContainer)`
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const NotFoundImg = styled.img`
+  width: 500px;
+
+  @media (max-width: 500px) {
+    width: 300px;
+  }
+`;
+
+export const ToMainButton = styled.button`
+  cursor: pointer;
+  background: none;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 5px 15px;
+`;
+
 export const spin = keyframes`
   from {
     transform: rotate(0deg);
