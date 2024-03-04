@@ -4,7 +4,7 @@ import Card from './Card';
 import { MainSection, UlWrapper, SpinnerContainer, SpinnerImg, Error } from './styles';
 import { RootState } from '../../../store/store';
 import Pagination from '../Pagination';
-import logo from '../../../assets/logo.png';
+import spin from '../../../assets/spin.png';
 import Filter from '../Filter/Filter';
 import { useEffect, useState } from 'react';
 import { Character } from '../../../types/api';
@@ -43,7 +43,7 @@ const CardBox = () => {
       {isError && <Error>{errorMessage}</Error>}
       {(isLoading || isFetching) && (
         <SpinnerContainer>
-          <SpinnerImg src={logo} alt="spinner" />
+          <SpinnerImg src={spin} alt="spinner" />
         </SpinnerContainer>
       )}
       {data && !isError && (

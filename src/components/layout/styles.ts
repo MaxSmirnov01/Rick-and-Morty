@@ -15,6 +15,7 @@ export const Nav = styled.nav`
   width: 100%;
   height: 100%;
   padding: 0 20px;
+  gap: 10px;
 `;
 
 export const LogoContainer = styled.div`
@@ -27,14 +28,16 @@ export const LogoContainer = styled.div`
 export const NotFoundContainer = styled(LogoContainer)`
   align-items: center;
   flex-direction: column;
-`;
-
-export const NotFoundImg = styled.img`
   width: 500px;
+  margin: 0 auto;
 
   @media (max-width: 500px) {
     width: 300px;
   }
+`;
+
+export const NotFoundImg = styled.img`
+  width: 100%;
 `;
 
 export const ToMainButton = styled.button`
@@ -55,9 +58,7 @@ export const spin = keyframes`
   }
 `;
 
-export const Logo = styled.img`
-  height: 100%;
-
+export const Logo = styled.svg`
   &:hover {
     animation: ${spin} 1s linear infinite;
   }
